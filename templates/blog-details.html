@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ blog.title }}
+{% endblock title %}
+
+{% block content %}
+
+<header class="container author">
+    <div class="author-info">
+        <div class="author-image">
+            <img src="{{ blog.author.avatar.url }}" alt="{{ avatar }}">
+        </div>
+        <div class="author-description">
+            <p class="author-name">{{ blog.author.user.first_name }} {{ blog.author.user.last_name }}</p>
+            <p class="author-title danger"><small>{{ blog.author.title }}</small></p>
+        </div>
+
+    </div>
+</header>
+<section class="container blog-content">
+    <p class="content__p">{{ blog.content|safe }}</p>
+    <div class="comments">
+        <p>Enjoyed the post? Please share your thoughts</p>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn-danger btn">Comment</button>
+        </form>
+
+        <h2>Recent comments</h2>
+        <ul>
+            {% for comment in comments %}
+            <li class="comment">
+                <h6>
+                    <span>{{ comment.name }}</span>
+                    <small>{{ comment.timestamp }}</small>
+                </h6>
+                <p class="comment-content">{{ comment.comment }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+{% endblock content %}
+{% block footer %}
+{% include 'footer.html' %}
+{% endblock footer %}
