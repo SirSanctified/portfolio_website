@@ -27,7 +27,9 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['pritchardmambambo.tech',
+                 'boiling-temple-21209.herokuapp.com',
+                 '127.0.0.1',]
 
 
 # Application definition
