@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os
-import whitenoise
+import dj_database_url
 from pathlib import Path
 from dotenv import load_dotenv
 
@@ -174,3 +174,5 @@ JAZZMIN_UI_TWEAKS = {
     "theme": "lux",
     "dark_mode_theme": "darkly",
 }
+
+DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
