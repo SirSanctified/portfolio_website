@@ -27,13 +27,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(os.path.join(BASE_DIR, '.env'))
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-%0)9qc8yg64c4rb@b32wn8ji!zuy((&ovu&6lqg2s(yhw9@3h^'
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
 ALLOWED_HOSTS = ['pritchardmambambo.tech',
-                 '54.197.15.232',
                  'localhost',]
 
 
@@ -92,10 +91,10 @@ WSGI_APPLICATION = 'portfolio_website.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'portfolio_website',
-        'USER': 'sir_sanctified',
-        'PASSWORD': '@#S4nct1f13d',
-        'HOST': 'localhost',
+        'NAME': os.getenv('DATABASE_NAME'),
+        'USER': os.getenv('DATABASE_USER'),
+        'PASSWORD': os.getenv('DATABASE_PASSWORD'),
+        'HOST': os.getenv('DATABASE_HOST'),
         'PORT': '',
     }
 }
