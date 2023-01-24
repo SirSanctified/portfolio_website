@@ -13,6 +13,10 @@ import os
 import dj_database_url
 from pathlib import Path
 from dotenv import load_dotenv
+import mimetypes
+
+mimetypes.add_type("text/css", ".css", True)
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,15 +27,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(os.path.join(BASE_DIR, '.env'))
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv("SECRET_KEY")
+SECRET_KEY = 'django-insecure-%0)9qc8yg64c4rb@b32wn8ji!zuy((&ovu&6lqg2s(yhw9@3h^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
 ALLOWED_HOSTS = ['pritchardmambambo.tech',
-                 'boiling-temple-21209.herokuapp.com',
-                 '127.0.0.1',
-                 '*',]
+                 '54.197.15.232',
+                 'localhost',]
 
 
 # Application definition
@@ -39,6 +42,7 @@ ALLOWED_HOSTS = ['pritchardmambambo.tech',
 INSTALLED_APPS = [
     'jazzmin',
     'ckeditor',
+    'whitenoise.runserver_nostatic',
     'ckeditor_uploader',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -51,7 +55,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -88,10 +92,10 @@ WSGI_APPLICATION = 'portfolio_website.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('DATABASE_NAME'),
-        'USER': os.getenv("DATABASE_USER"),
-        'PASSWORD': os.getenv('DATABASE_PASSWORD'),
-        'HOST': os.getenv('DATABASE_URL'),
+        'NAME': 'portfolio_website',
+        'USER': 'sir_sanctified',
+        'PASSWORD': '@#S4nct1f13d',
+        'HOST': 'localhost',
         'PORT': '',
     }
 }
@@ -174,5 +178,3 @@ JAZZMIN_UI_TWEAKS = {
     "theme": "lux",
     "dark_mode_theme": "darkly",
 }
-
-DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)

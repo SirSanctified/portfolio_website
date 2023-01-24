@@ -34,7 +34,7 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     avatar = models.ImageField(blank=True, null=True, upload_to="avatar")
     title = models.CharField(max_length=200, blank=True, null=True)
-    bio = models.TextField(blank=True, null=True)
+    bio = fields.RichTextUploadingField(blank=True, null=True)
     cv = models.FileField(blank=True, null=True, upload_to="cv")
     facebook = models.URLField(default='https://facebook.com')
     instagram = models.URLField(default='https://instagram.com')

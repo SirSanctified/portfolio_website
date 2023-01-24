@@ -8,7 +8,7 @@
 {% block content %}
 
 <main>
-    <div class="container__main">
+    <div class="container__main container">
         <h3 class="text-white-50">Hi, I am {{ user_profile.user.first_name }} {{ user_profile.user.last_name }}</h3>
         <h2 class="text-danger">{{ user_profile.title }}</h2>
         <p class="text-white my-lg-3 my-md-2 mb-3">
@@ -27,7 +27,7 @@
 </main>
 
 <section class="technologies">
-    <div class="container container__technologies">
+    <div class="container-lg container-md container-sm container__technologies">
         <h1>Technologies And Stacks I Use Most</h1>
         <ul class="technologies__ul">
             {% for technology in technologies %}
