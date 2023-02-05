@@ -1,0 +1,34 @@
+{% extends 'portfolio/base.html' %}
+
+{% block title %}
+Blogs
+{% endblock title %}
+
+{% block content %}
+<section class="container-blogs container">
+    <div class=" blogs">
+        {% if blogs %}
+        <ul>
+            {% for blog in blogs %}
+            <li>
+                <div class="blog">
+                    <h5 class="blog-title">{{ blog.title }}</h5>
+                    <p>
+                        <span class="author-name">{{ blog.author.user.first_name }} {{ blog.author.user.last_name }}</span>
+                        <span class="blog-date"><small>{{ blog.timestamp }}</small></span>
+                    </p>
+                    <img src="{{ blog.blog_image.url }}" alt="">
+                    <a href="{{ blog.id }}/" , target="_blank"><i class="uil uil-play"></i> Read More</a>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p class="empty">No blogs at the moment, please check again later.</p>
+        {% endif %}
+    </div>
+</section>
+{% endblock content %}
+{% block footer %}
+{% include 'portfolio/footer.html' %}
+{% endblock footer %}

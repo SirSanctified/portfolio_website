@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <script src="{% static 'js/script.js' %}" defer></script>
+    <title>{% block title %} {% endblock title %}</title>
+</head>
+
+<body class="">
+    {% include './messages.html' %}
+    <nav>
+        <div class="container">
+            <div class="logo">
+                Prit<span class="">chard.</span>
+            </div>
+            <div class="navbar" id="menu">
+                <a href="/" class="">Home</a>
+                <a href="/#about" class="">About Me</a>
+                <a href="/#projects" class="">Portfolio</a>
+                <a href="/blogs/" class="">Blogs</a>
+                <a href="/contact/" class="">Contact Me</a>
+            </div>
+
+            <button id="menu-btn" class="hamburger">
+                <span class="hamburger-top"></span>
+                <span class="hamburger-middle"></span>
+                <span class="hamburger-bottom"></span>
+            </button>
+
+            <!-- <div id="menu" class="hidden">
+                <a href="/" class="">Home</a>
+                <a href="/#about" class="">About Me</a>
+                <a href="/#projects" class="">Portfolio</a>
+                <a href="/blogs/" class="">Blogs</a>
+                <a href="/contact/" class="">Contact Me</a>
+            </div> -->
+        </div>
+    </nav>
+
+    {% block content %}
+    {% endblock content %}
+    {% block footer %}
+    {% endblock footer %}
+</body>
+
+</html>

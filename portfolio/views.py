@@ -9,16 +9,18 @@ def home(request):
     user = models.UserProfile.objects.first()
     projects = models.Project.objects.all()
     technologies = models.Technology.objects.all()
+    soft_skills = models.SoftSkill.objects.all()
     context = {
         'user_profile': user,
         'projects': projects,
         'technologies': technologies,
+        'soft_skills': soft_skills,
     }
-    return render(request, 'index.html', context)
+    return render(request, 'portfolio/index.html', context)
 
 
 class ContactView(generic.FormView):
-    template_name = "contact.html"
+    template_name = "portfolio/contact.html"
     form_class = forms.ContactForm
     success_url = "/"
 
@@ -31,7 +33,7 @@ class ContactView(generic.FormView):
 
 def blog_posts(request):
     blogs = models.Blog.objects.all()
-    return render(request, 'blogs.html', context={'blogs': blogs})
+    return render(request, 'portfolio/blogs.html', context={'blogs': blogs})
 
 
 def blog_details(request, pk):
@@ -48,4 +50,4 @@ def blog_details(request, pk):
             return redirect('/blogs/{}'.format(pk))
     elif request.method == 'GET':
         form = forms.CommentForm()
-    return render(request, 'blog-details.html', context={'blog': blog, 'comments': comments, 'form': form})
+    return render(request, 'portfolio/blog-details.html', context={'blog': blog, 'comments': comments, 'form': form})

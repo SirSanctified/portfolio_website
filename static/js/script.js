@@ -1,13 +1,13 @@
-$('.navToggle').on('click', function (e) {
-  e.preventDefault();
-  $('body').toggleClass('navToggleActive');
-});
+const btn = document.getElementById('menu-btn')
+const nav = document.querySelector('.navbar')
+const navbar = document.querySelector('nav')
 
-
-$(window).scroll(function(){
-  if ($(this).scrollTop() > 10) {
-    $('body').addClass('fixedHeader');
-  } else {
-    $('body').removeClass('fixedHeader');
-  }
-});
+btn.addEventListener('click', () => {
+    btn.classList.toggle('open')
+    if (nav.style.display === 'flex') {
+        nav.style.display = 'none'
+    } else {
+        nav.style.display = 'flex'
+        nav.style.transform = 'translateX(0)'
+    }
+})

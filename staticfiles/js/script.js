@@ -1,13 +1,8 @@
-$('.navToggle').on('click', function (e) {
-  e.preventDefault();
-  $('body').toggleClass('navToggleActive');
-});
+const btn = document.getElementById('menu-btn')
+const nav = document.getElementsByClassName('navbar')
 
-
-$(window).scroll(function(){
-  if ($(this).scrollTop() > 10) {
-    $('body').addClass('fixedHeader');
-  } else {
-    $('body').removeClass('fixedHeader');
-  }
-});
+btn.addEventListener('click', () => {
+    // btn.classList.toggle('open')
+    nav.style.display = "flex"
+    nav.style.transform = "translateX(0)"
+})

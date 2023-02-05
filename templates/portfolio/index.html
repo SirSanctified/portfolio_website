@@ -1,0 +1,129 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+
+{% block title %}
+{{ user_profile.user.first_name }} {{ user_profile.user.last_name }}
+{% endblock title %}
+
+{% block content %}
+
+<main class="">
+    <div class="container">
+        <div class="left__main">
+            <h3 class="">Hello_</h3>
+            <h4>I am {{ user_profile.user.first_name }} {{ user_profile.user.last_name }},</h4>
+            <h2 class="">a {{ user_profile.title }}</h2>
+            <p>{{ user_profile.bio|safe }}</p>
+            <div class="hero-btns">
+                <a href="{{ user_profile.cv.url }}" download="{{ user_profile.cv.url }}" class="">Download CV</a>
+                <a href="/contact/" class="">Contact Me</a>
+            </div>
+            <div class="socials">
+                <a target="_blank" href="{{ user_profile.linkedin }}" class=""><i class="uil uil-linkedin"></i></a>
+                <a target="_blank" href="{{ user_profile.twitter }}" class=""><i class="uil uil-twitter"></i></a>
+                <a target="_blank" href="{{ user_profile.github }}" class=""><i class="uil uil-github"></i></a>
+                <a target="_blank" href="{{ user_profile.whatsapp }}" class=""><i class="uil uil-whatsapp-alt"></i></a>
+            </div>
+        </div>
+        <div class="right__main">
+            <img src="{% static 'images/developer.svg' %}" alt="">
+        </div>
+    </div>
+</main>
+
+<section id="about" class="about">
+    <div class="container">
+        <h2>About Me</h2>
+        <div class="container-about">
+            <div class="left-about">
+                <img src="{% static 'images/coder.svg' %}" alt="">
+            </div>
+            <div class="right-about">
+                <p>
+                    I am passionate about developing software that is reliable, efficient and user friendly. I have experience in developing web applications in both frond-end and back-end technologies . I am proficient in a wide range of programming languages, databases and web technologies. I’m able to work independently and collaboratively.
+
+                </p>
+                <p>
+                    I am excited to continue learning new technologies and applying my skills to create beautiful and intuitive user experiences. Currently, I am pursuing my Bachelors Degree in Computer Science at Great Zimbabwe University as well as a Full Stack Software Engineering Certificate with ALX Africa.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="skills">
+    <div class="container">
+        <h1>My Skills</h1>
+        <div class="container__skills">
+            <div class="technical">
+                <h2>Technical Skills</h2>
+                <ul class="skills__ul">
+                    {% for technology in technologies %}
+                    <li class="skill">
+                        <h1><i class="uil uil-{{ technology.technology_uil_name}}"></i></h1>
+                        <p>{{ technology.technology_name }}</p>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="soft">
+                <h2>Non-Technical Skills</h2>
+                <ul class="soft_skills">
+                    {% for skill in soft_skills %}
+                    <li class="skill">
+                        <p>{{ skill.name }}</p>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="projects">
+    <div class="container">
+        <h1>Explore My Work</h1>
+        <div class="container__projects">
+            <ul>
+                {% for project in projects %}
+                <li>
+                    <article class="project">
+                        <h3>{{ project.project_name }}</h3>
+                        <img src="{{ project.project_image.url }}" alt="{{ project.project_name }}">
+                        <p>{{ project.description }}</p>
+                        <ul>
+                            {% for technology in project.technologies.values_list %}
+                            <li>{{ technology.1 }}</li>
+                            {% endfor %}
+                        </ul>
+                        <div class="links">
+                            <a target="_blank" href="{{ project.project_url }}">Live</a>
+                            <a target="_blank" href="{{ project.project_github_url }}">Source</a>
+                        </div>
+                    </article>
+                </li>
+                {% endfor %}
+            </ul>
+            <a target="_blank" href="https://github.com/SirSanctified" class="more-projects">More on Github</a>
+        </div>
+    </div>
+</section>
+
+<section class="cta">
+    <div class="container">
+        <div class="container-cta">
+            <div class="cta-content">
+                <h4>
+                    If you are looking for a reliable and talented Junior Software Engineer to join your team and help your organization reach its goals, look no further! Contact me today and I’ll be happy to discuss how I can help take your project/organization to the next level.
+                </h4>
+            </div>
+            <div>
+                <a href="/contact/" class="cta-btn">Contact Me</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}
+{% block footer %}
+{% include './footer.html' %}
+{% endblock footer %}
