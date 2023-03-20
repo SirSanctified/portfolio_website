@@ -367,7 +367,7 @@ main .container,
 .project ul {
     display: grid;
     /* flex-wrap: wrap; */
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
     gap: 0.5em;
     column-gap: 0.1em;
     margin-top: 2rem;
