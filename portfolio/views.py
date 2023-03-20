@@ -22,7 +22,7 @@ def home(request):
 class ContactView(generic.FormView):
     template_name = "portfolio/contact.html"
     form_class = forms.ContactForm
-    success_url = "/"
+    success_url = "/contact/"
 
     def form_valid(self, form):
         form.save()

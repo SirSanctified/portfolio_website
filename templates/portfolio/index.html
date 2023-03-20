@@ -43,8 +43,44 @@
                     I am passionate about developing software that is reliable, efficient and user friendly. I have experience in developing web applications in both frond-end and back-end technologies . I am proficient in a wide range of programming languages, databases and web technologies. I’m able to work independently and collaboratively.
 
                 </p>
+                <br>
                 <p>
                     I am excited to continue learning new technologies and applying my skills to create beautiful and intuitive user experiences. Currently, I am pursuing my Bachelors Degree in Computer Science at Great Zimbabwe University as well as a Full Stack Software Engineering Certificate with ALX Africa.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="services">
+    <div class="container">
+        <h1>My Services</h1>
+        <div class="container__services">
+            <div class="service">
+                <div class="service__icon">
+                    <i class="uil uil-web-grid"></i>
+                </div>
+                <h2>Web Development</h2>
+                <p>
+                    Websites are the face of your business. I have experience in developing websites using HTML, CSS, Javascript, Bootstrap, TailwindCSS, Django and React.
+                </p>
+            </div>
+            <div class="service">
+                <div class="service__icon">
+                    <i class="uil uil-link-h"></i>
+                </div>
+                <h2>API Development</h2>
+                <p>
+                    APIs are the backbone of modern web applications. I have experience in developing RESTful APIs using Django Rest Framework and Flask and Nodejs.
+                </p>
+            </div>
+            <div class="service">
+                <div class="service__icon">
+                    <i class="uil uil-server-network"></i>
+                </div>
+                <h2>Linux Server Management</h2>
+                <p>
+                    Server management is a very important aspect of web development. I have experience in managing Linux servers and deploying web applications to production.
                 </p>
             </div>
         </div>
@@ -60,7 +96,7 @@
                 <ul class="skills__ul">
                     {% for technology in technologies %}
                     <li class="skill">
-                        <h1><i class="uil uil-{{ technology.technology_uil_name}}"></i></h1>
+                        <h1><i class="bx bxl-{{ technology.technology_uil_name}}"></i></h1>
                         <p>{{ technology.technology_name }}</p>
                     </li>
                     {% endfor %}

@@ -71,6 +71,24 @@ p {
     padding-inline: 1em;
 }
 
+.alert {
+    background: var(--bg-secondary);
+    color: var(--primaryColor);
+    padding: 1em;
+    margin: 1em 0;
+    border-radius: .2em;
+}
+
+.alert-success {
+    background: rgb(78, 121, 78);
+    color: var(--primaryColor);
+}
+
+.alert-danger {
+    background: rgb(121, 78, 78);
+    color: var(--primaryColor);
+}
+
 /* ============== NAVBAR ================== */
 nav {
     background: var(--bg-secondary);
@@ -223,6 +241,45 @@ main .container,
     height: 20em;
 }
 
+/* =================== Services (HOME PAGE) ======================= */
+
+.services {
+    padding-top: 3rem;
+    margin-bottom: 0;
+    width: 100%;
+}
+
+.services h1, .services h2, .service__icon {
+    text-align: center;
+}
+
+.services h1:nth-child(1) {
+    margin-bottom: 1em;
+}
+
+.service__icon {
+    font-size: 3em;
+}
+
+.container__services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1em;
+}
+
+.container__services .service {
+    padding: 1em;
+    margin-bottom: 2em;
+    background: var(--bg-secondary);
+    border-radius: 0.4em;
+}
+
+.service:hover {
+    background: var(--btn-primary);
+    color: var(--primaryColor);
+    box-shadow: 0 0 3em rgba(47, 14, 156, 0.5);
+}
+
 /* =================== SKILLs (HOME PAGE) ======================== */
 .skills {
     padding-top: 3rem;
@@ -266,9 +323,10 @@ main .container,
 
 .container__projects ul {
     list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
+    display: grid;
+    /* flex-wrap: wrap; */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1em;
     margin-top: 3rem;
     padding-left: 0%;
 
@@ -307,9 +365,11 @@ main .container,
 }
 
 .project ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1em;
+    display: grid;
+    /* flex-wrap: wrap; */
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 0.5em;
+    column-gap: 0.1em;
     margin-top: 2rem;
 }
 
