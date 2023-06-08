@@ -60,7 +60,7 @@ class Contact(models.Model):
     timestamp = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return f'{self.name}, {self.email}, {self.subject}'
+        return f'{self.name}, {self.email}'
 
 
 
